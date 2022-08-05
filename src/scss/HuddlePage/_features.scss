@@ -1,0 +1,86 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.features {
+    margin-top: 8rem;
+    @include m.grid(1, 12rem);
+
+    @include m.tablet { 
+        gap: 10rem;
+    }
+}
+
+.feature {
+    position: relative;
+
+    &:nth-child(even) .feature__contenido {
+        @include m.tablet { 
+            flex-direction:row-reverse;
+        }
+    }
+
+    &__bg {
+        background-color: v.$verypaleBlue;
+    }
+
+    &__ola {
+        width: 100%;
+
+        @include m.tablet { 
+            display: none;
+        }
+    }
+
+    &__ola-d {
+        display: none;
+
+        @include m.tablet { 
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &__contenido {
+        padding: 4rem 0;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 4rem;
+
+        @include m.tablet { 
+            flex-direction: row;
+        }
+
+    }
+
+    &__info {
+        text-align: center;
+        @include m.tablet { 
+            text-align: left;
+            max-width: 45rem;
+        }
+
+        @include m.desktop { 
+            max-width: 52rem;
+        }
+
+    }
+
+    &__imagen {
+        transition: all .3s;
+        margin-bottom: 3rem;
+        animation-name: updown;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    
+
+        @include m.telefono { 
+            width: 70%;
+            margin: 0 auto;;
+        }
+
+        @include m.tablet { 
+            width: 40%;
+        }
+    }
+}

@@ -1,0 +1,215 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.footer {
+    
+    &__ola {
+        width: 100%;
+        margin-bottom: -.5rem;
+
+        @include m.tablet { 
+            display: none;
+        }
+    }
+
+    &__ola-d {
+        display: none;
+
+        @include m.tablet { 
+            display: block;
+            width: 100%;
+            margin-bottom: -.5rem;
+        }
+    }
+
+    &__bg {
+        background-color: v.$verydarkCyan;
+    }
+
+    &__contenido {
+        padding: 4rem 0;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 5rem;
+
+        @include m.tablet { 
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        @include m.desktop { 
+            width: 100%;
+            @include m.grid(2, 10rem);
+        }
+    }
+
+    &__logo {
+        width: 10rem;
+        margin-bottom: 2rem;
+        display: inline-block;
+
+        svg path {
+            fill: v.$white;
+        }
+
+        @include m.tablet { 
+            width: 20rem;
+        }
+    }
+
+    &__contacto {
+        color: v.$white;
+
+        @include m.desktop { 
+            max-width: 31rem;
+        }
+    }
+
+    &__lorem {
+        margin-bottom: 5rem;
+    }
+
+    &__ul {
+        padding-left: 3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__li {
+        position: relative;
+        
+        &:first-of-type {
+
+            &::before {
+                content: '';
+                background-image: url(../img/icon-phone.svg);
+                background-repeat: no-repeat;
+                background-size: 1.8rem;
+                width: 1.8rem;
+                height: 1.8rem;
+
+                position: absolute;
+                top: -.2rem;
+                left: -2.8rem;
+            }
+        }
+
+        &:last-of-type {
+            
+            &::before {
+                content: '';
+                background-image: url(../img/icon-email.svg);
+                background-repeat: no-repeat;
+                background-size: 1.8rem;
+                width: 1.8rem;
+                height: 1.8rem;
+
+                position: absolute;
+                top: .3rem;
+                left: -2.8rem;
+            }
+        }
+    }
+
+
+    &__form {
+        color: v.$white;
+    }
+
+    &__heading {
+        color: v.$white;
+    }
+
+    &__texto {
+        margin-bottom: 2rem;
+        @include m.desktop { 
+            max-width: 38rem;
+        }
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    @include m.desktop { 
+        flex-direction: row;
+        gap: 3rem;
+    }
+
+    &__input-c {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    &__input {
+        padding: 1.4rem;
+        border-radius: .5rem;
+        border: none;
+
+        &.error {
+            border: 1px solid v.$lightRed;
+        }
+    }
+
+    &__error {
+        display: none;
+        font-size: 1.4rem;
+        color: v.$lightRed;
+        opacity: 0;
+        transition-property: opacity;
+        transition-duration: .3s;
+
+        &.activo {
+            display: block;
+            opacity: 1;
+
+        }
+    }
+
+    &__submit {
+        @include m.boton(v.$pink, v.$white);
+        border-radius: .5rem;
+        padding: 1.4rem;
+        margin: 0;
+        width: 30%;
+
+        @include m.tablet { 
+            padding: 1.4rem;
+        }
+    }
+}
+
+.iconos {
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    &__a {
+        color: v.$white;
+        font-size: 2.5rem;
+
+        &:hover {
+            color: lightseagreen;
+        }
+    }
+}
+
+.autor {
+    color: v.$white;
+    text-align: center;
+
+    a {
+        color: v.$pink;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

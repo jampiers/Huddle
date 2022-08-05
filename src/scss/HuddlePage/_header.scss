@@ -1,0 +1,75 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.header{
+    padding: 3rem 0 11rem 0;
+
+    &__barra {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10rem;
+    }
+
+    &__logo {
+        width: 15rem;
+        @include m.tablet { 
+            width: 20rem;
+        }
+    }
+
+    &__enlace {
+        @include m.boton(v.$pink, v.$pink);
+        background-color: transparent;
+        font-weight: normal;
+        border: 1px solid v.$pink;
+        margin-top: 0;
+        padding: 1rem 2.5rem;
+
+        @include m.tablet { 
+            padding: 1rem 2.5rem;   
+        }
+
+        &:hover {
+            border: 1px solid v.$lightPink;
+            background-color: transparent;
+            color: v.$lightPink;
+        }
+    }
+
+    &__contenido {
+        text-align: center;
+
+        @include m.tablet { 
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
+
+    &__texto {
+        max-width: 49rem;
+        margin: 0 auto 2rem auto;
+    }
+
+    &__link-c {
+        @include m.boton(v.$pink, v.$white);
+    }
+
+    &__imagen {
+        margin-top: 8rem;
+        transition-property: transform;
+        transition-duration: .3s;
+        animation-name: updown;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+
+        @include m.telefono { 
+            width: 80%;
+            margin: 8rem auto 0 auto;
+        }
+
+        @include m.tablet { 
+            width: 90%;
+        }
+    }
+}

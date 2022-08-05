@@ -1,0 +1,41 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.stats {
+
+    &__contenido {
+        @include m.grid(1, 10rem);
+        @include m.tablet { 
+            width: 80%;
+            margin: 0 auto;
+            @include m.grid(2, 10rem);
+        }
+
+        @include m.desktop { 
+            width: 60%;
+        }
+    }
+}
+
+.stat {
+    text-align: center;
+    margin:auto;
+
+    &__cantidad {
+        font-size: 6rem;
+        color: v.$verydarkCyan;
+        font-weight: 700;
+    }
+
+    &__nombre {
+        color: lighten(v.$black, 50%);
+
+        span {
+            display: block;
+
+            @include m.desktop { 
+                display: inline-block;
+            }
+        }
+    }
+}
